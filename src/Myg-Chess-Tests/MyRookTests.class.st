@@ -27,7 +27,7 @@ MyRookTests >> testMoves [
 ]
 
 { #category : 'tests' }
-MyRookTests >> testMovesWithOponentObstacle [
+MyRookTests >> testMovesWithObstacle [
 
 	| bishop squares board |
 	board := MyChessBoard empty.
