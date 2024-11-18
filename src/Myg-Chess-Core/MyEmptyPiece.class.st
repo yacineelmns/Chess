@@ -13,5 +13,5 @@ MyEmptyPiece >> isEmpty [
 { #category : 'rendering' }
 MyEmptyPiece >> targetSquaresLegal: aBoolean [
 
-	^ OrderedCollection new
+	^ OrderedCollection new "mettre une collection vide car une piece vide na pas de mvt "
 ]
