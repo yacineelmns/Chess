@@ -80,6 +80,11 @@ MyChessSquare >> column [
 	^ name first
 ]
 
+{ #category : 'as yet unclassified' }
+MyChessSquare >> columnDifference: anotherSquare [ 
+	^ self column asciiValue - anotherSquare column asciiValue 
+]
+
 { #category : 'accessing' }
 MyChessSquare >> contents [
 	^ contents
