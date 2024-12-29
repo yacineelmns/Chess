@@ -19,7 +19,7 @@ MyChessSquareTest >> testAddAndRemovePieceFromSquare [
 
 	square emptyContents. "on vide le caarre donc plus de pièce"
 	self deny: square hasPiece. "doit return faux plus de piece sur la case "
-	self assert: square contents isNil "la case ne contient plus rien"
+	self assert: square contents isEmpty "la case ne contient plus rien"
 ]
 
 { #category : 'tests' }
@@ -45,7 +45,7 @@ MyChessSquareTest >> testClearSquareContents [
 	square contents: piece.
 	square emptyContents. "on supp toute la piece "
 	
-	self assert: square contents isNil "on confirme que la case a ete vider"
+	self assert: square contents isEmpty "on confirme que la case a ete vider"
 
 ]
 
@@ -78,12 +78,12 @@ MyChessSquareTest >> testSquareContentsAfterAssignment [
 ]
 
 { #category : 'tests' }
-MyChessSquareTest >> testSquareContentsIsNil [ 
+MyChessSquareTest >> testSquareContentsIsNil [ "apres modification de code jai juste remplacer isNil dans les tests par isEmpty"
 	| board square |
 	board := MyChessBoard empty.
 	square := board at: 'g6'. "g6 vide au départ"
 
-	self assert: square contents isNil."si ca return nil cest que cest bien vide"
+	self assert: square contents isEmpty."si ca return nil cest que cest bien vide"
 
 ]
 
@@ -117,5 +117,5 @@ MyChessSquareTest >> testSquareInitiallyEmpty [
 "on creer une instance de myChessSquare sans instancier board "
         square := MyChessSquare basicNew color: Color white; initialize; yourself.
         
-        self assert: square contents isNil "on verifie que la case est bien vide"
+        self assert: square contents isEmpty "on verifie que la case est bien vide"
 ]
