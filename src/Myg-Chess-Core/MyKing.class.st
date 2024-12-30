@@ -66,7 +66,7 @@ MyKing >> isKing [
 MyKing >> opponentPieces [
 
 	^ self board pieces select: [ :e |
-		  e notNil and: [ e color = color negated ] ]
+		  e hasPiece and: [ e color = color negated ] ]
 ]
 
 { #category : 'rendering' }
@@ -76,7 +76,7 @@ MyKing >> renderPieceOn: aSquare [
 ]
 
 { #category : 'rendering' }
-MyKing >> targetSquaresLegal: aBoolean [
+MyKing >> targetSquaresLegal: aBoolean [ 
 	"The king cannot move to threatened squares"
 
 	| threatenedSquares |

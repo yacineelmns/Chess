@@ -18,7 +18,7 @@ MyKnight >> renderPieceOn: aSquare [
 ]
 
 { #category : 'rendering' }
-MyKnight >> targetSquaresLegal: aBoolean [
+MyKnight >> targetSquaresLegal: aBoolean [ 
 
 	^ {
 		  (square right ifNotNil: [ :p | p right ifNotNil: #up ]).
