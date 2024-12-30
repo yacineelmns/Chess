@@ -42,7 +42,7 @@ MyChessSquare >> + aPoint [
 	column := (self column asciiValue + aPoint x) asCharacter asString.
 	file := (self file asciiValue + aPoint y) asCharacter asString.
 
-	^ board at: column , file ifAbsent: [ MyEmptyPiece new ]
+	^ board at: column , file ifAbsent: [ ^ nil]
 ]
 
 { #category : 'accessing' }
@@ -87,21 +87,16 @@ MyChessSquare >> contents [
 
 { #category : 'accessing' }
 MyChessSquare >> contents: aPiece [
-    | text |
-    contents := aPiece isEmpty ifTrue: [ MyEmptyPiece new ] ifFalse: [ aPiece ].
 
-    text := contents isEmpty
-        ifTrue: [
-            color isBlack
-                ifFalse: [ 'z' ]
-                ifTrue: [ 'x' ] ]
-        ifFalse: [ contents renderPieceOn: self ].
+	| text |
+	contents := aPiece.
 
-    piece text: (text asRopedText
-                 fontSize: 48;
-                 foreground: self foreground;
-                 fontName: MyOpenChessDownloadedFont new familyName).
+    text := contents renderPieceOn: self.  
 
+	piece text: (text asRopedText
+			 fontSize: 48;
+			 foreground: self foreground;
+			 fontName: MyOpenChessDownloadedFont new familyName)
 ]
 
 { #category : 'api - configuration' }
@@ -133,7 +128,7 @@ MyChessSquare >> foreground [
 { #category : 'testing' }
 MyChessSquare >> hasPiece [
 	
-	^ contents isEmpty not.
+	^ contents hasPiece.
 ]
 
 { #category : 'highlighting' }
@@ -146,7 +141,6 @@ MyChessSquare >> highlightTarget [
 MyChessSquare >> initialize [
 
 	super initialize.
-	contents := MyEmptyPiece new. "a linitialisation il a automatiquement une case vide et pas nil"
 	target := BlElement new
 		  geometry: BlCircleGeometry new;
 		  background: (Color gray alpha: 0.3).

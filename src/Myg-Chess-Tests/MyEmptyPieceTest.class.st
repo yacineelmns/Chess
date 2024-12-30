@@ -6,12 +6,40 @@ Class {
 }
 
 { #category : 'tests' }
-MyEmptyPieceTest >> testIsEmpty [ 
-"on creer notre instance"
-    | emptyPiece |
-    emptyPiece := MyEmptyPiece new.
-    self assert: emptyPiece isEmpty."doit return true"
+MyEmptyPieceTest >> testEmptyPieceDoesNotThreaten [
+	| emptyPiece |
+	emptyPiece := MyEmptyPiece new.
 
+	self assert: emptyPiece attackingSquares isEmpty. "on ne doit pas attaquer les autres"
+
+]
+
+{ #category : 'tests' }
+MyEmptyPieceTest >> testHasPiece [
+	| emptyPiece |
+	emptyPiece := MyEmptyPiece new.
+
+	self assert: emptyPiece hasPiece not.  
+
+]
+
+{ #category : 'tests' }
+MyEmptyPieceTest >> testMoveToAnotherSquare [
+	| emptyPiece newSquare |
+	"on verifie qu'elle ne doit pas pouvoir se deplacer"
+	emptyPiece := MyEmptyPiece new.
+	newSquare := MyChessSquare basicNew color: Color white; initialize; yourself.
+
+	self should: [ emptyPiece moveTo: newSquare ] raise: Error.  
+]
+
+{ #category : 'tests' }
+MyEmptyPieceTest >> testRenderPieceOnSquare [
+	| emptyPiece square |
+	emptyPiece := MyEmptyPiece new.
+	square := MyChessSquare basicNew color: Color white; initialize; yourself.
+
+	self assert: (emptyPiece renderPieceOn: square) isNil
 
 ]
 

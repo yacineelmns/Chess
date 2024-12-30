@@ -6,7 +6,7 @@ Class {
 }
 
 { #category : 'tests' }
-MyChessSquareTest >> testAddAndRemovePieceFromSquare [ 
+MyChessSquareTest >> testAddAndRemovePieceFromSquare [  
 	| board square piece |
 	"on instancie notre board notre carre et la piece "
 	board := MyChessBoard empty.
@@ -19,11 +19,12 @@ MyChessSquareTest >> testAddAndRemovePieceFromSquare [
 
 	square emptyContents. "on vide le caarre donc plus de pièce"
 	self deny: square hasPiece. "doit return faux plus de piece sur la case "
-	self assert: square contents isEmpty "la case ne contient plus rien"
+	self assert: square contents  hasPiece not. "la case ne contient plus rien"
+ 
 ]
 
 { #category : 'tests' }
-MyChessSquareTest >> testAssignPieceToSpecificSqaretwo [
+MyChessSquareTest >> testAssignPieceToSpecificSqaretwo [  
 	| square piece board |
 	board := MyChessBoard empty. "cree lequiquier vide toutes les cases sont init"
 	square := board at: 'b3'. 
@@ -33,10 +34,11 @@ MyChessSquareTest >> testAssignPieceToSpecificSqaretwo [
 	
 	self assert: square contents equals: piece "on verifie si elle est bien la"
 
+
 ]
 
 { #category : 'tests' }
-MyChessSquareTest >> testClearSquareContents [ 
+MyChessSquareTest >> testClearSquareContents [  
 	| square piece board |
 	board := MyChessBoard empty.
 	square := board at: 'b1'.
@@ -45,12 +47,12 @@ MyChessSquareTest >> testClearSquareContents [
 	square contents: piece.
 	square emptyContents. "on supp toute la piece "
 	
-	self assert: square contents isEmpty "on confirme que la case a ete vider"
+	self assert: square contents hasPiece not "on confirme que la case a ete vider"
 
 ]
 
 { #category : 'tests' }
-MyChessSquareTest >> testReassignPieceToSquare [ 
+MyChessSquareTest >> testReassignPieceToSquare [   
 	| square piece1 piece2 board |
 	board := MyChessBoard empty.
 	square := board at: 'a1'.  
@@ -62,10 +64,12 @@ MyChessSquareTest >> testReassignPieceToSquare [
 
 	square contents: piece2."on place la piece 2 sur la case"
 	self assert: square contents equals: piece2 "on verifie que cest maintenant la piece `2 qui est presente"
+ 
+
 ]
 
 { #category : 'tests' }
-MyChessSquareTest >> testSquareContentsAfterAssignment [ 
+MyChessSquareTest >> testSquareContentsAfterAssignment [   
 	| board square piece |
 	board := MyChessBoard empty.
 	square := board at: 'c3'.
@@ -78,12 +82,12 @@ MyChessSquareTest >> testSquareContentsAfterAssignment [
 ]
 
 { #category : 'tests' }
-MyChessSquareTest >> testSquareContentsIsNil [ "apres modification de code jai juste remplacer isNil dans les tests par isEmpty"
+MyChessSquareTest >> testSquareContentsIsNil [   "apres modification de code jai juste remplacer isNil dans les tests par isEmpty"
 	| board square |
 	board := MyChessBoard empty.
 	square := board at: 'g6'. "g6 vide au départ"
 
-	self assert: square contents isEmpty."si ca return nil cest que cest bien vide"
+	self assert: square contents hasPiece not"si ca return nil cest que cest bien vide"
 
 ]
 
@@ -98,7 +102,7 @@ MyChessSquareTest >> testSquareHasNoPiece [
 ]
 
 { #category : 'tests' }
-MyChessSquareTest >> testSquareHasPiece [ 
+MyChessSquareTest >> testSquareHasPiece [  
 "test de haspiece"
 	| board square piece |
 	board := MyChessBoard empty.
@@ -109,13 +113,4 @@ MyChessSquareTest >> testSquareHasPiece [
 
 	self assert: square hasPiece "on verifie quelle est bien là"
 
-]
-
-{ #category : 'tests' }
-MyChessSquareTest >> testSquareInitiallyEmpty [ 
-        | square |
-"on creer une instance de myChessSquare sans instancier board "
-        square := MyChessSquare basicNew color: Color white; initialize; yourself.
-        
-        self assert: square contents isEmpty "on verifie que la case est bien vide"
 ]

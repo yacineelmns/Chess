@@ -101,7 +101,7 @@ MyPiece >> downLeftDiagonal [
 MyPiece >> downLeftDiagonalLegal: aBoolean [
 
 	^ self
-		  collectSquares: [ :aSquare | aSquare down ifNotNil: #left ]
+		   collectSquares: [ :aSquare | aSquare down ifNotNil: #left ]
 		  legal: aBoolean
 ]
 
@@ -119,16 +119,15 @@ MyPiece >> downRightDiagonalLegal: aBoolean [
 		  legal: aBoolean
 ]
 
+{ #category : 'testing' }
+MyPiece >> hasPiece [ 
+    ^ true
+]
+
 { #category : 'accessing' }
 MyPiece >> id [
 
 	^ 'Q'
-]
-
-{ #category : 'testing' }
-MyPiece >> isEmpty [
-    ^ false
-
 ]
 
 { #category : 'testing' }
@@ -233,7 +232,7 @@ MyPiece >> upLeftDiagonal [
 { #category : 'rendering' }
 MyPiece >> upLeftDiagonalLegal: aBoolean [
 
-	^ self collectSquares: [ :aSquare | aSquare up ifNotNil: #left ] legal: aBoolean
+	^ self collectSquares: [ :aSquare | aSquare up ifNotNil: #left ]legal: aBoolean
 ]
 
 { #category : 'rendering' }
