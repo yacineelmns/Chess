@@ -68,3 +68,8 @@ MyOutOfBoundsSquare >> unhighlightTarget [
     "on ne fait rien pour une case hors plateau"
 
 ]
+
+{ #category : 'testing' }
+MyOutOfBoundsSquare >> up [ 
+    ^ self
+]
