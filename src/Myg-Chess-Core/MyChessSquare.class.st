@@ -42,7 +42,7 @@ MyChessSquare >> + aPoint [
 	column := (self column asciiValue + aPoint x) asCharacter asString.
 	file := (self file asciiValue + aPoint y) asCharacter asString.
 
-	^ board at: column , file ifAbsent: [ ^ nil]
+	^ board at: column , file ifAbsent: [ MyOutOfBoundsSquare new]
 ]
 
 { #category : 'accessing' }
@@ -105,9 +105,11 @@ MyChessSquare >> contents: aPiece [
 ]
 
 { #category : 'api - configuration' }
-MyChessSquare >> down [
+MyChessSquare >> down [ 
+    | nextSquare |
+    nextSquare := self + (0 @ -1).
+    ^ nextSquare isOutOfBounds ifTrue: [ MyOutOfBoundsSquare new ] ifFalse: [ nextSquare ]
 
-	^ self + (0 @ -1)
 ]
 
 { #category : 'asd' }
@@ -171,10 +173,18 @@ MyChessSquare >> initialize [
 	self addEventHandlerOn: BlClickEvent do: [ :e | self click ]
 ]
 
-{ #category : 'accessing' }
-MyChessSquare >> left [
+{ #category : 'testing' }
+MyChessSquare >> isOutOfBounds [ 
+    ^ false
 
-	^ self + (-1 @ 0)
+]
+
+{ #category : 'accessing' }
+MyChessSquare >> left [ 
+    | nextSquare |
+    nextSquare := self + (-1 @ 0).
+    ^ nextSquare isOutOfBounds ifTrue: [ MyOutOfBoundsSquare new ] ifFalse: [ nextSquare ]
+
 ]
 
 { #category : 'accessing' }
@@ -283,9 +293,11 @@ MyChessSquare >> renderRook: aPiece [
 ]
 
 { #category : 'accessing' }
-MyChessSquare >> right [
-	
-	^ self + (1@0)
+MyChessSquare >> right [ 
+    | nextSquare |
+    nextSquare := self + (1 @ 0).
+    ^ nextSquare isOutOfBounds ifTrue: [ MyOutOfBoundsSquare new ] ifFalse: [ nextSquare ]
+
 ]
 
 { #category : 'initialization' }
@@ -307,7 +319,9 @@ MyChessSquare >> unselect [
 ]
 
 { #category : 'instance creation' }
-MyChessSquare >> up [
-	
-	^ self + (0@1)
+MyChessSquare >> up [ 
+    | nextSquare |
+    nextSquare := self + (0 @ 1).
+    ^ nextSquare isOutOfBounds ifTrue: [ MyOutOfBoundsSquare new ] ifFalse: [ nextSquare ]
+
 ]

@@ -35,9 +35,9 @@ MyChessBoard class >> new [
 ]
 
 { #category : 'accessing' }
-MyChessBoard >> at: coordinate [
+MyChessBoard >> at: coordinate [ 
 
-	^ grid at: coordinate ifAbsent: nil
+	^ grid at: coordinate ifAbsent: MyOutOfBoundsSquare new
 ]
 
 { #category : 'accessing' }
@@ -88,7 +88,7 @@ MyChessBoard >> game: aGame [
 { #category : 'highlighting' }
 MyChessBoard >> highLightTargets: squares [
 
-	squares do: [ :sq | sq ifNotNil: #highlightTarget ]
+	squares do: [ :sq | sq highlightTarget ]
 ]
 
 { #category : 'initialization' }
@@ -238,7 +238,7 @@ MyChessBoard >> selected: aMyChessSquare [
 { #category : 'highlighting' }
 MyChessBoard >> unhighLightTargets: squares [
 
-	squares do: [ :sq | sq ifNotNil: #unhighlightTarget ]
+	squares do: [ :sq | sq unhighlightTarget ]
 ]
 
 { #category : 'selection' }
