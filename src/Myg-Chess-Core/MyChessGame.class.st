@@ -50,6 +50,11 @@ MyChessGame class >> new [
 	self error: 'Please use one of the other constructors'
 ]
 
+{ #category : 'accessing' }
+MyChessGame >> board [
+	^ board
+]
+
 { #category : 'playing' }
 MyChessGame >> checkForMate [
 
