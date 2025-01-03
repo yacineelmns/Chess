@@ -23,9 +23,9 @@ MyKing >> basicTargetSquares [
         square left.
         square down left.
         square down.
-        square down right
-    }
-
+        square down right.
+    } "si on souhaite filtre sur l'interface graphique lorsqu'on rencontre des cases nonexistente"
+"select: [ :s | s isOutOfBounds not ]"
 ]
 
 { #category : 'accessing' }

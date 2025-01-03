@@ -24,6 +24,41 @@ MyChessSquareTest >> testAddAndRemovePieceFromSquare [
 ]
 
 { #category : 'tests' }
+MyChessSquareTest >> testAddPointWithCombinedMove [ 
+    | board square result |
+    board := MyChessBoard empty.
+    square := board at: 'e4'.
+
+    "on ajt un déplacement valide"
+    result := square + (1 @ 1). 
+
+    self assert: result equals: (board at: 'f5')
+]
+
+{ #category : 'tests' }
+MyChessSquareTest >> testAddPointWithInvalidMove [ 
+    | board square result |
+    board := MyChessBoard empty.
+    square := board at: 'h8'.
+
+    "on ajt un déplacement qui sort du plateau"
+    result := square + (1 @ 0).  
+ 
+    self assert: result class equals: MyOutOfBoundsSquare
+]
+
+{ #category : 'tests' }
+MyChessSquareTest >> testAddPointWithValidMove [ 
+    | board square result |
+    board := MyChessBoard empty.
+    square := board at: 'e4'.
+
+    result := square + (1 @ 0). 
+
+    self assert: result equals: (board at: 'f4')
+]
+
+{ #category : 'tests' }
 MyChessSquareTest >> testAssignPieceToSpecificSqaretwo [  
 	| square piece board |
 	board := MyChessBoard empty. "cree lequiquier vide toutes les cases sont init"

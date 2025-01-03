@@ -50,7 +50,7 @@ MyOutOfBoundsSquare >> left [
 
 { #category : 'accessing' }
 MyOutOfBoundsSquare >> name [ 
-    ^ 'case inexistante'
+    ^ ' case inexistante;'
 ]
 
 { #category : 'testing' }

@@ -171,8 +171,111 @@ MyPieceTest >> testDownRightDiagonalLegalStopOnInvalidSquare [
     piece := MyBishop white.
     board at: 'h1' put: piece.
 
-    "depuis 'h1', on a aucune case valide en bas à droite"
+    "depuis h1, on a aucune case valide en bas à droite"
     squares := piece downRightDiagonalLegal: true.
 
     self assert: squares isEmpty
+]
+
+{ #category : 'tests' }
+MyPieceTest >> testDownRightDiagonalLegalStopOnObstacle [ 
+    | board piece squares obstacle |
+    board := MyChessBoard empty.
+    piece := MyBishop white.
+    obstacle := MyPawn black.
+    board at: 'e4' put: piece.
+    board at: 'g2' put: obstacle.
+
+    "La diagonale s'arrête à la case contenant l'obstacle"
+    squares := piece downRightDiagonalLegal: true.
+
+    self assert: (squares collect: #name) asArray equals: #('f3' 'g2')
+
+]
+
+{ #category : 'tests' }
+MyPieceTest >> testUpLeftDiagonalLegalAllValid [ 
+    | board piece squares |
+    board := MyChessBoard empty.
+    piece := MyBishop white.
+    board at: 'e4' put: piece.
+
+    "on collecte toutes les cases valides en haut à gauche"
+    squares := piece upLeftDiagonalLegal: true.
+
+    self assert: (squares collect: #name) asArray equals: #('d5' 'c6' 'b7' 'a8')
+
+]
+
+{ #category : 'tests' }
+MyPieceTest >> testUpLeftDiagonalLegalStopOnInvalidSquare [ 
+    | board piece squares |
+    board := MyChessBoard empty.
+    piece := MyBishop white.
+    board at: 'a8' put: piece.
+
+    "a partir de a8 aucune case valide vers le haut à gauche"
+    squares := piece upLeftDiagonalLegal: true.
+
+    self assert: squares isEmpty
+
+]
+
+{ #category : 'tests' }
+MyPieceTest >> testUpLeftDiagonalLegalStopOnObstacle [ 
+    | board piece squares obstacle |
+    board := MyChessBoard empty.
+    piece := MyBishop white.
+    obstacle := MyPawn black.
+    board at: 'e4' put: piece.
+    board at: 'c6' put: obstacle.
+
+    "la diagonale s'arrete à la case qui continent l'obstacle"
+    squares := piece upLeftDiagonalLegal: true.
+
+    self assert: (squares collect: #name) asArray equals: #('d5' 'c6')
+
+]
+
+{ #category : 'tests' }
+MyPieceTest >> testUpRightDiagonalLegalAllValid [ 
+    | board piece squares |
+    board := MyChessBoard empty.
+    piece := MyBishop white.
+    board at: 'e4' put: piece.
+
+    "on collecte toutes les cases valides en haut à droite"
+    squares := piece upRightDiagonalLegal: true.
+
+    self assert: (squares collect: #name) asArray equals: #('f5' 'g6' 'h7')
+
+]
+
+{ #category : 'tests' }
+MyPieceTest >> testUpRightDiagonalLegalStopOnInvalidSquare [ 
+    | board piece squares |
+    board := MyChessBoard empty.
+    piece := MyBishop white.
+    board at: 'h8' put: piece.
+
+    "a partir de h8 on a aucune case valide vers le haut à droite"
+    squares := piece upRightDiagonalLegal: true.
+
+    self assert: squares isEmpty
+
+]
+
+{ #category : 'tests' }
+MyPieceTest >> testUpRightDiagonalLegalStopOnObstacle [ 
+    | board piece squares obstacle |
+    board := MyChessBoard empty.
+    piece := MyBishop white.
+    obstacle := MyPawn black.
+    board at: 'e4' put: piece.
+    board at: 'g6' put: obstacle.
+
+    "la diagonale s'arrête à la case contenant l'obstacle"
+    squares := piece upRightDiagonalLegal: true.
+
+    self assert: (squares collect: #name) asArray equals: #('f5' 'g6')
 ]
