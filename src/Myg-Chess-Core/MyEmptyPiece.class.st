@@ -25,7 +25,7 @@ MyEmptyPiece >> moveTo: aSquare [
 { #category : 'rendering' }
 MyEmptyPiece >> renderPieceOn: aSquare [ 
     "Aucune pièce à afficher pour une case vide."
-    ^ nil
+    ^ (aSquare color isBlack ifTrue: [ 'x' ] ifFalse: [ 'z' ])   
 ]
 
 { #category : 'rendering' }
