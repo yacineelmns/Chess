@@ -11,11 +11,9 @@ Vous trouverez l'avancement et les détails du dérouler des katas dans le parag
 
 ## Katas choisis 
 Nous avons détaillé nos katas dans deux fichiers README distincts : 
-### Fix pawn moves! voici le lien : 
-### Remove nil checks voici le lien : 
+### Fix pawn moves! voici le lien : [readmePawn](FixPawnMoves.md)  
 
-Dans ce README, vous trouverez ...
-( mettre un lien vers un autre readme pour expliquer les katas plus en details )
+### Remove nil checks voici le lien : [readmeNil](RemoveNilChecks.md)
 
 # Importation du projet     
 
