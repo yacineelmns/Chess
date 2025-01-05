@@ -1,14 +1,18 @@
 # Etudiants       
 
-EL MANSOURI Yacine
+EL MANSOURI Yacine   
 DASSI Helyana    
 Année 2024-2025     
 
-# Sujet    
 
-Le sujet de ce TP est disponible ici : https://github.com/UnivLille-Meta/Chess
+# Introduction 
+Dans ce readme vous trouverez d'une part le guide d'installation et d'exécution du projet et d'autre part une étude préalable du projet. 
+Vous trouverez l'avancement et les détails du dérouler des katas dans le paragraphe suivant.
 
-# Introduction     
+## Katas choisis 
+Nous avons détaillé nos katas dans deux fichiers README distincts : 
+### Fix pawn moves! voici le lien : 
+### Remove nil checks voici le lien : 
 
 Dans ce README, vous trouverez ...
 ( mettre un lien vers un autre readme pour expliquer les katas plus en details )
@@ -43,36 +47,60 @@ space resizable: true.
 space show.
 ```
 
-# Katas choisis   
+# Comment interagissons-nous avec lui ?
+Pour interagir avec le jeu d'échecs, plusieurs options s'offrent à vous :
 
-### Fix pawn moves!
+Mode interactif :
+Cliquez sur une pièce pour la sélectionner.
+Cliquez ensuite sur la case où vous souhaitez déplacer cette pièce.
+Mode automatique :
+Appuyez sur le bouton "PLAY" pour que le jeu effectue un déplacement automatiquement.
 
-**Goal:** Practice debugging and testing
+## Où se trouvent le code et les tests ? Faut-il s'occuper de quelque chose ?
+Code source : Le code principal du jeu est situé dans le package Myg-Chess-Core.
+Tests : Les tests unitaires se trouvent dans le package Myg-Chess-Tests.
 
-Pawns are one of the most complicated pieces of chess to implement.
-They move forward, one square at a time, except for their first movement.
-However, they can move diagonally to capture other pieces.
-And in addition, there is the (in)famous "En passant" move that complicates everything (see https://en.wikipedia.org/wiki/En_passant, and the FEN documentation for ideas on how to encode this information https://www.chessprogramming.org/Forsyth-Edwards_Notation#En_passant_target_square).
-As any *complicated* feature, the original developer (Guille P) left this for the end, and then left the project.
-But you can do it.
+# Analyse préalable
+Avant de réaliser la moindre modification, nous avons effectué une analyse approfondie du code afin de mieux comprendre la structure du projet et de préparer la refactorisation de notre kata.
 
-Questions and ideas that can help you in the process:
-- Can you write tests showing the bugs?
-- What kind of tools can you use to spot the bug?
-- Can you approach this incrementally? This is, splitting this task in many subtasks. How would you prioritize them?
 
-### Remove nil checks
+## Analyse des packages :
 
-**Goal:** Practice refactorings and patterns
+- **Myg-Chess-Core** : Ce package contient la logique principale du jeu d'échecs.
+Il regroupe les classes de base qui gèrent l'échiquier, les pièces et les cases.
 
-In the game, each square has optionally a piece.
-The absence of a piece is represented as a `nil`.
-As any project done in stress during a short period of time (a couple of evenings when the son is sick), the original developer (Guille P) was not 100% following coding standards and quality recommendations.
-We would like to clean up the game logic and remove `nil` checks using some polymorphism.
-You can do it.
+- **Myg-Chess-Importers** :  Ce package est dédié aux importations.
 
-Questions and ideas that can help you in the process:
-- How do we transform nil checks into polymorphism?
-- What kind of API should you design?
-- Can tests help you do it with less pain?
-- Something similar happens when a pieces wants to move outside of the board, can you find it and fix it?
+- **Myg-Chess-Tests**: Ce package contient les tests unitaires permettant de vérifier le bon fonctionnement des différentes classes et fonctionnalités du jeu.
+
+
+## Analyse de certaines classes dans Myg-Chess-Core
+
+- **MyChessBoard** : Cette classe représente le plateau de jeu, mais elle permet également d'initialiser les pièces.
+- **MyChessSquare** : Cette classe gère les cases de l'échiquier et leur contenu.
+- **MyPiece** : Cette classe représente toutes les pièces du jeu. Chaque pièce redéfinit son propre mouvement.
+
+
+## Résultats des Tests
+
+Intéressons-nous aux différents tests unitaires effectués sur les composants clés du jeu d'échecs.
+
+- **MyBishopTests** : 4 tests réussis.  
+- **MyFENTest** : 3 tests réussis.  
+- **MyKingTest** : 2 tests réussis sur les fonctionnalités liées au roi.  
+- **MyRookTests** : 4 tests réussis pour la tour.  
+
+
+
+## Analyse de la Couverture de Code
+
+La couverture de code est un indicateur clé pour évaluer quelles parties du projet sont suffisamment testées.
+
+Myg-Chess-Core : 45,64 % de couverture. Ce package central comprend la logique principale du jeu. 
+ 
+ ![couverture de code du package core](img/core-coverage.png)
+
+
+ 
+
+ 
