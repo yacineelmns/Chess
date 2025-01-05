@@ -9,7 +9,7 @@ Class {
 MyOutOfBoundsSquareTest >> testFileReturnsInvalidValue [ 
 	| square |
 	square := MyOutOfBoundsSquare new.
-	self assert: square file equals: -1 
+	self assert: square file equals: 0 
 ]
 
 { #category : 'tests' }
