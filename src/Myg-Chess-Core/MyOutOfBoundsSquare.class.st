@@ -24,7 +24,7 @@ MyOutOfBoundsSquare >> down [
 
 { #category : 'accessing' }
 MyOutOfBoundsSquare >> file [ 
-    ^-1
+    ^0
 ]
 
 { #category : 'testing' }
