@@ -40,7 +40,9 @@ Après cette analyse, nous avons décidé de séparer le kata en deux parties po
 
 
 ##### 1. **Les nils représentant des cases vides** 
-
+Voici les principaux commit même si il y a eu des changements mineurs
+https://github.com/UnivLille-Meta/Chess/commit/90b6c1ca1056583f48dff452fe4d123cb188b3ff
+https://github.com/UnivLille-Meta/Chess/commit/59f2b2c970ad32344ad10a88daffa2d8b5cedabd
  - Création de la classe MyEmptyPiece
 Nous avons utilisé l'héritage pour créer la classe MyEmptyPiece, une sous-classe de MyPiece, afin de représenter une pièce vide. Cette classe encapsule le comportement des cases sans pièce :
 
@@ -70,7 +72,11 @@ Voici un UML simple des principales modififications effectuées :
 ![umlNil](img/umlNil.png)
 
 
-2. **Les nils représentant des cases inexistantes** 
+2. **Les nils représentant des cases inexistantes**
+3. Voici les principaux commit même si il y a eu des changements mineurs
+https://github.com/UnivLille-Meta/Chess/commit/6ff0bd035a14b1af6452eed2ab3ab43d080ba31a
+https://github.com/UnivLille-Meta/Chess/commit/c3b37c29554060512da0d2d7e9759c8cc67d9a7d
+https://github.com/UnivLille-Meta/Chess/commit/77e5933f5ab591cebd289f3bbac853c7f340ca67
  - Création de la classe MyOutOfBoundsSquare
 
 Pour représenter une case inexistante (en dehors du plateau), nous avons créé la classe MyOutOfBoundsSquare, qui gère les comportements spécifiques aux cases hors plateau, sans utiliser nil.
