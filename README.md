@@ -93,12 +93,17 @@ Intéressons-nous aux différents tests unitaires effectués sur les composants 
 ## Analyse de la Couverture de Code
 
 La couverture de code est un indicateur clé pour évaluer quelles parties du projet sont suffisamment testées.
-
-Myg-Chess-Core : 45,64 % de couverture. Ce package central comprend la logique principale du jeu. 
+Le package central Myg-Chess-Core, qui regroupe la logique principale du jeu, avait une couverture de test de 45,64 %, ce qui laissait une marge significative pour des cas non testés ou des scénarios oubliés. Après une série de tests supplémentaires et une optimisation méthodique de la suite de tests, la couverture a atteint 63,49 %. Cette progression reflète un effort ciblé pour assurer la fiabilité et la solidité des fonctionnalités clés du cœur du jeu d'échecs. Notamment pour le code ajouté ou modifié, ils sont tous testés.
  
  ![couverture de code du package core](img/core-coverage.png)
+ ![couverture de code du package core](img/core-coverage2.png)
 
 
- 
+## Test de mutation 
+
+Pour avoir un recul sur la robustesse de nos tests, nous avions fait au debut du projet des tests de mutations pour savoir ou nous en etions.
+Notamment pour les 2 katas, en ce qui concerne la classe MyPawn, le score de détection des mutations était de 38 %, révélant des failles dans notre couverture et notre validation. A la fin du kata, nous pouvons constaté une nette amélioration de la robustesse de notre suite de tests. Grâce à des tests ciblés et des ajustements méthodiques, ce score est désormais passé à 74 %. Cela démontre une meilleure capacité de nos tests à identifier les anomalies et garantit une validation plus solide des fonctionnalités, en particulier pour les cas complexes comme le mouvement "en passant". Cette démarche renforce la fiabilité globale du code.
+
+ ![couverture de code du package core](img/mutation.png)
 
  
