@@ -74,3 +74,9 @@ Cependant, la première solution s'est avérée simple et efficace, ce qui a per
 ### Pourquoi cette partie du code est-elle plus testée que l'autre ?
 
 Nous avons naturellement concentré nos tests sur le code modifié et ajouté pour le kata, avec une attention particulière aux mouvements complexes tels que "en passant" et les captures. Ces fonctionnalités ont été plus testées en raison de leur complexité et de leur potentiel d'erreur élevé.
+
+
+voici les liens des commits importants: 
+https://github.com/UnivLille-Meta/Chess/commit/38fd2d41a6a787bac8cc01e72b7af005a712cea5
+https://github.com/UnivLille-Meta/Chess/commit/6f89f8725c634f6f6b0f9b951561f95200b3de79
+
